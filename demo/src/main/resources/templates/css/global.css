@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    min-height: calc(100vh - 80px); /* Adjust according to height */
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto; /* This will push the footer to the bottom */
+}
