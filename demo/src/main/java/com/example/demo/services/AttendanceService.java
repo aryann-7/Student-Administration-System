@@ -15,7 +15,6 @@ import com.example.demo.models.Term;
 import com.example.demo.repositories.AttendanceRepository;
 import com.example.demo.repositories.ParentRepository;
 import com.example.demo.repositories.StudentRepository;
-import com.example.demo.repositories.TermRepository;
 
 @Service
 public class AttendanceService {
@@ -28,10 +27,6 @@ public class AttendanceService {
     
     @Autowired
     private StudentRepository studentRepository;
-    
-    @Autowired
-    private TermRepository termRepository;
-    
 
     public void markAttendance(Student student, Term term, String status, int weekNumber, String day) {
         Attendance attendance = new Attendance();
