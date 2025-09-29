@@ -7,3 +7,4 @@ Development Stages:
 1. Configure Project (Spring Initialzr)
 2. Create MySQL Database and connect to localhost:8080
 3. Create the 4 core service entity classes (UserService, Role, Term & Class.java) 
+4. Created the 4 core repositories (User, Role, Term & SchoolClass Repository)

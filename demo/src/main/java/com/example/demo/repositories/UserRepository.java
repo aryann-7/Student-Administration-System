@@ -22,17 +22,17 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     // Find user by username or email (useful for login flexibility)
     Optional<UserEntity> findByUsernameOrEmail(String username, String email);
     
-    // Find all active users
-    List<UserEntity> findByActiveTrue();
+    // FIXED: Find all active users (changed from 'active' to 'isActive')
+    List<UserEntity> findByIsActiveTrue();
     
-    // Find all inactive users
-    List<UserEntity> findByActiveFalse();
+    // FIXED: Find all inactive users (changed from 'active' to 'isActive')
+    List<UserEntity> findByIsActiveFalse();
     
     // Find users by role
     List<UserEntity> findByRole(Role role);
     
-    // Find active users by role
-    List<UserEntity> findByRoleAndActiveTrue(Role role, boolean active);
+    // FIXED: Find active users by role (changed method name to match field)
+    List<UserEntity> findByRoleAndIsActiveTrue(Role role);
     
     // Find users by first name and last name
     List<UserEntity> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(
@@ -48,23 +48,23 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = :roleName")
     List<UserEntity> findByRoleName(@Param("roleName") String roleName);
     
-    // Custom query to find users by role name and active status
-    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = :roleName AND u.active = :active")
+    // FIXED: Custom query to find users by role name and active status (changed 'active' to 'isActive')
+    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = :roleName AND u.isActive = :active")
     List<UserEntity> findByRoleNameAndActiveStatus(@Param("roleName") String roleName, @Param("active") boolean active);
     
     // Count users by role
     @Query("SELECT COUNT(u) FROM UserEntity u WHERE u.role = :role")
     long countByRole(@Param("role") Role role);
     
-    // Get all teachers (assuming TEACHER role exists)
-    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = 'TEACHER' AND u.active = true")
+    // FIXED: Get all teachers (changed 'active' to 'isActive')
+    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = 'TEACHER' AND u.isActive = true")
     List<UserEntity> findAllActiveTeachers();
     
-    // Get all students (assuming STUDENT role exists)
-    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = 'STUDENT' AND u.active = true")
+    // FIXED: Get all students (changed 'active' to 'isActive')
+    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = 'STUDENT' AND u.isActive = true")
     List<UserEntity> findAllActiveStudents();
     
-    // Get all parents (assuming PARENT role exists)
-    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = 'PARENT' AND u.active = true")
+    // FIXED: Get all parents (changed 'active' to 'isActive')
+    @Query("SELECT u FROM UserEntity u WHERE u.role.roleName = 'PARENT' AND u.isActive = true")
     List<UserEntity> findAllActiveParents();
 }

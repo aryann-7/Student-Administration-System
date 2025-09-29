@@ -39,8 +39,8 @@ public interface RoleRepository extends JpaRepository<Role, Long> {
     @Query("SELECT COUNT(u) FROM UserEntity u WHERE u.role.roleName = :roleName")
     long countUsersByRoleName(@Param("roleName") String roleName);
     
-    // Find roles that have active users
-    @Query("SELECT DISTINCT u.role FROM UserEntity u WHERE u.active = true")
+    // Find roles that have active users - FIXED: Changed u.active to u.isActive
+    @Query("SELECT DISTINCT u.role FROM UserEntity u WHERE u.isActive = true")
     List<Role> findRolesWithActiveUsers();
     
     // Custom query to get role statistics

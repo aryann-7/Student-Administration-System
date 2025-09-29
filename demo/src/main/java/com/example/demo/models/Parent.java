@@ -3,16 +3,13 @@ package com.example.demo.models;
 import java.time.LocalDate;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -76,9 +73,6 @@ public class Parent {
     // Relationships
     @ManyToMany(mappedBy = "parents")
     private List<Student> children;
-    
-    @OneToMany(mappedBy = "recipient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Notification> notifications;
     
     // Constructors
     public Parent() {}
@@ -238,14 +232,6 @@ public class Parent {
     
     public void setChildren(List<Student> children) {
         this.children = children;
-    }
-    
-    public List<Notification> getNotifications() {
-        return notifications;
-    }
-    
-    public void setNotifications(List<Notification> notifications) {
-        this.notifications = notifications;
     }
     
     // Utility methods

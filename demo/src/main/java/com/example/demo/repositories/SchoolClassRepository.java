@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.models.SchoolClass;
 import com.example.demo.models.Term;
-import com.example.demo.models.UserEntity;
+import com.example.demo.models.Teacher;
 
 @Repository
 public interface SchoolClassRepository extends JpaRepository<SchoolClass, Long> {
@@ -42,8 +42,8 @@ public interface SchoolClassRepository extends JpaRepository<SchoolClass, Long> 
     // Find classes with capacity less than specified number
     List<SchoolClass> findByCapacityLessThan(int capacity);
     
-    // Find classes by teacher (assuming teacher relationship exists)
-    List<SchoolClass> findByTeacher(UserEntity teacher);
+    // Find classes by teacher
+    List<SchoolClass> findByTeacher(Teacher teacher);
     
     // Find classes by teacher ID
     List<SchoolClass> findByTeacherId(Long teacherId);
@@ -61,8 +61,8 @@ public interface SchoolClassRepository extends JpaRepository<SchoolClass, Long> 
     @Query("SELECT sc FROM SchoolClass sc JOIN sc.term t WHERE t.isActive = true")
     List<SchoolClass> findClassesInActiveTerm();
     
-    // Custom query to find classes by teacher username
-    @Query("SELECT sc FROM SchoolClass sc WHERE sc.teacher.username = :username")
+    // FIXED: Custom query to find classes by teacher username (through user entity)
+    @Query("SELECT sc FROM SchoolClass sc WHERE sc.teacher.user.username = :username")
     List<SchoolClass> findByTeacherUsername(@Param("username") String username);
     
     // Custom query to count students in a class
