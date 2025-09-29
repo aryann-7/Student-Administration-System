@@ -1,6 +1,9 @@
 Development Login Credentials:
 Username: user
 Password: ec7c128c-a371-4b5c-b294-1c3303d5ba93
-This is shown in the warning message:
-Using generated security password: ec7c128c-a371-4b5c-b294-1c3303d5ba93
 This generated password is for development use only.
+
+Development Stages:
+1. Configure Project (Spring Initialzr)
+2. Create MySQL Database and connect to localhost:8080
+3. Create the 4 core service entity classes (UserService, Role, Term & Class.java) 
