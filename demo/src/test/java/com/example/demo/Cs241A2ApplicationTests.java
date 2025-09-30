@@ -9,5 +9,4 @@ class Cs241A2ApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
