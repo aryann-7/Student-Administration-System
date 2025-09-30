@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String firstName; 
     private String lastName;
@@ -25,11 +25,11 @@ public class Teacher {
     private SchoolClass classAssigned;
 
     //setters and getters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

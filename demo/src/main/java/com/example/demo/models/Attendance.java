@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private LocalDate date;
     private String status;
@@ -40,11 +40,11 @@ public class Attendance {
         this.term = term;
     }
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

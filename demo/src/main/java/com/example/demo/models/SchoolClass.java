@@ -18,19 +18,19 @@ public class SchoolClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "SchoolClass", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "schoolClass", cascade = CascadeType.ALL)
     private List<Student> students = new ArrayList<>();
 
-    @OneToOne(mappedBy = "AssignedClass", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "classAssigned", cascade = CascadeType.ALL)
     private Teacher teacher;
 
     //setters and getters
-    public int getId() { 
+    public Long getId() { 
         return id; }
-    public void setId(int id) { 
+    public void setId(Long id) { 
         this.id = id; }
 
     public String getName() { 

@@ -17,25 +17,25 @@ public class Parent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String email;
     private String contact;
 
-    @OneToMany(mappedBy = "Parent1", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parent1", cascade = CascadeType.ALL)
     private List<Student> childrenAsParent1 = new ArrayList<>();
 
-    @OneToMany(mappedBy = "Parent2", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parent2", cascade = CascadeType.ALL)
     private List<Student> childrenAsParent2 = new ArrayList<>();
 
     // One-to-many relationship with Notifications
-    @OneToMany(mappedBy = "Parent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Notification> notifications = new ArrayList<>();
 
     // Getters and Setters
-    public int getId() { 
+    public Long getId() { 
         return id; }
-    public void setId(int id) { 
+    public void setId(Long id) { 
         this.id = id; }
 
     public String getName() { 

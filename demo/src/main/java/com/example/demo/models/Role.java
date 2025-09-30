@@ -12,18 +12,18 @@ import jakarta.persistence.Table;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     //ensure unique name and not null roles
     @Column(unique = true, nullable = false)
     private String name;
 
     //setters and getters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
