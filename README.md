@@ -278,16 +278,4 @@ This is an academic project for CS241. For contribution guidelines:
 4. Document new features and modifications
 5. Use the Kanban board for task management
 
-## 📝 Assignment Requirements
-
-This project fulfills the following requirements for **CS241 Assignment Two**:
-
-✅ Manage Student Grade functionality
-✅ Manage Student Attendance functionality
-✅ Role-based access control
-✅ MVC architecture implementation
-✅ Database integration with MySQL
-✅ Thymeleaf templating for views
-✅ Spring Security for authentication
-
 **Note**: Remember to change default passwords and update security configurations before any production deployment.
